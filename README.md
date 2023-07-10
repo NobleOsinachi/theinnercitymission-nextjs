@@ -2,6 +2,8 @@
 
 This repository contains a project that aims to clone the homepage of [The InnerCity Mission NGO](https://theinnercitymission.ngo/) using Next.js. The purpose of this project is to learn component architecture and other relevant concepts through practical implementation.
 
+Live link: https://innercitymission-next-js.vercel.app/
+
 ## Getting Started
 
 To run this project locally, follow these steps:
