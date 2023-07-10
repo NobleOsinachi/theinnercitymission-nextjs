@@ -70,4 +70,4 @@ Here are some resources you may find helpful for learning Next.js and component 
 
 Feel free to explore these resources to gain a deeper understanding of Next.js, React, and component-based development.
 
-Enjoy learning and happy coding!
+Enjoy learning and happy coding!!!
