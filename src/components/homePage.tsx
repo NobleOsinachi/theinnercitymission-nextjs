@@ -14,7 +14,7 @@ export default function HomePage() {
 
             <Navbar />
 
-            <Carousel />
+            {/* <Carousel /> */}
 
             <Statistics />
 

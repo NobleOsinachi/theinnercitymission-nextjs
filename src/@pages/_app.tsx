@@ -8,6 +8,8 @@ type AppProps = {
     pageProps: any; // Replace 'any' with the specific type of your 'pageProps' if available
 };
 
+
+
 export default function App({ Component, pageProps }: AppProps) {
     const router = useRouter();
 
@@ -26,6 +28,11 @@ export default function App({ Component, pageProps }: AppProps) {
 
                         <li>
                             <Link className={router.pathname === "/about" ? "active" : ""} href="/about" >About</Link>
+                        </li>
+
+
+                        <li>
+                            <Link className={router.pathname === "/blog" ? "active" : ""} href="/blog" >Blog</Link>
                         </li>
                     </ul>
 
