@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "prod": "cls && clear && npm run build && npm run start",
     "start": "next start",
     "lint": "next lint"
   },
