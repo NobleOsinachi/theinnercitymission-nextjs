@@ -1,8 +1,6 @@
 'use client';
 import { useRouter } from "next/navigation";
-
-// import { useRouter } from "next/router";
-
+import Image from "next/image";
 
 const About = () => {
     const images = [1, 2, 3];
@@ -31,7 +29,6 @@ const About = () => {
                 </p>
                 <p className="w-3/5 text-center text-2xl" >
                     Additionally, the institute organizes tech talks and workshops conducted by industry experts. These sessions give students insights into the latest trends and advancements in the tech industry, helping them stay updated and relevant in their field of study. The interactive nature of these events allows students to ask questions, seek advice, and gain practical knowledge from experienced professionals. By actively engaging in such activities, students at EDUHUB Institute of Technology can enhance their academic learning and prepare themselves for a successful career in the technology sector.
-
                 </p>
 
                 <p className="text-[22px]">
@@ -41,38 +38,25 @@ const About = () => {
                 {/* Ctrl f2 = senior brother of ctrl D */}
 
                 <div className="flex justify-center items-center gap-10">
-                    {images.map(image => <img
-
-                        key={image}
-                        className="w-1/4 shadow-lg hover:shadow-2xl"
-                        src={`/images/image-${image}.png`}
-
-                        alt={`image ${image}`}
-
-
-                    />)}
+                    {images.map(image =>
+                        <Image
+                            key={image}
+                            className="w-1/4 shadow-lg hover:shadow-2xl"
+                            src={`/images/image-${image}.png`}
+                            alt={`image ${image}`}
+                        />)}
                 </div>
 
 
-                <button className="border-red-500
- border-2
- p-2 
- rounded-md"
+                <button className="border-red-500 border-2  p-2   rounded-md"
                     onClick={() => {
-
-
                         router.push("/services");
-
                     }}
-
-
                 >
                     View more
                 </button>
 
             </div>
-
-
         </section>
     );
 };

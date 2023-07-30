@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "local": "npm run dev",
     "build": "next build",
     "prod": "npm run build && npm run start",
     "start": "next start",

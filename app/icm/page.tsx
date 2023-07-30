@@ -10,9 +10,6 @@ export default function HomePage() {
 
         <div className="HomePage">
 
-
-            {/* <Navbar /> */}
-
             <Carousel src={"/banner.png"} alt={"banner.png"} width={100} height={100} />
 
             <Statistics />

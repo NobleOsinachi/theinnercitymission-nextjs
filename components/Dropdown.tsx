@@ -26,7 +26,7 @@ const Dropdown = (props: IcmNavDropDown) => {
 
     return (
         <div className="relative">
-            <button className="flex items-center text-white hover:text-gray-300" onMouseOver={() => setIsDropdownOpen(!isDropdownOpen)}>
+            <button className="flex items-center text-white hover:text-gray-300" onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
                 {props.title}
 
                 <i className="ml-1">
@@ -44,7 +44,7 @@ const Dropdown = (props: IcmNavDropDown) => {
                 " ref={dropdownRef}>
                     {props.links.map((link) =>
 
-                        <Link className="w-72" href={link.url}>{link.label}</Link>)
+                        <Link key={link.label} className="w-72" href={link.url}>{link.label}</Link>)
                     }
 
                 </div>
