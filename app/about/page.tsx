@@ -41,9 +41,11 @@ const About = () => {
                     {images.map(image =>
                         <Image
                             key={image}
-                            className="w-1/4 shadow-lg hover:shadow-2xl"
+                            className=" shadow-lg hover:shadow-2xl"
                             src={`/images/image-${image}.png`}
                             alt={`image ${image}`}
+                            width="600"
+                            height="600"
                         />)}
                 </div>
 
