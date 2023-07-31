@@ -36,17 +36,19 @@ const About = () => {
                 </p>
 
                 {/* Ctrl f2 = senior brother of ctrl D */}
-
-                <div className="flex justify-center items-center gap-10">
-                    {images.map(image =>
-                        <Image
-                            key={image}
-                            className=" shadow-lg hover:shadow-2xl"
-                            src={`/images/image-${image}.png`}
-                            alt={`image ${image}`}
-                            width="600"
-                            height="600"
-                        />)}
+                <div className="container mx-30 px-4 py-8">
+                    <div className="flex justify-center items-center gap-10">
+                        {images.map(image => (
+                            <Image
+                                key={image}
+                                className="shadow-lg hover:shadow-2xl max-w-3/4"
+                                src={`/images/image-${image}.png`}
+                                alt={`image ${image}`}
+                                width="200"
+                                height="200"
+                            />
+                        ))}
+                    </div>
                 </div>
 
 

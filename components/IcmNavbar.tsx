@@ -87,8 +87,8 @@ const IcmNavbar = () => {
     return (
         <>
 
-            <nav className="bg-blue-500 flex justify-left items-center h-25 p-4
-             text-white sticky top-0            ">
+            <nav className=" bg-icm-blue flex justify-left items-center h-25 p-4
+             text-white sticky top-0">
 
                 <span className="text-yellow-50 ml-5 font-semibold text-2xl m-5"><IcmLogo /></span>
 
@@ -96,12 +96,12 @@ const IcmNavbar = () => {
 
                     {links.map((link) => (
                         <li key={link.label}>
-                            <a
-                                className="hover:bg-blue-500 m-0 p-2 hover:rounded-md active:bg-purple-600 focus:ring focus:outline-none focus:ring-green-700 focus:rounded-md"
+                            <Link
+                                className="hover:text-black m-0 p-2"
                                 href={link.url}
                             >
                                 {link.label}
-                            </a>
+                            </Link>
                         </li>
                     ))}
 
@@ -115,7 +115,6 @@ const IcmNavbar = () => {
                     </li>
                 </ul>
             </nav>
-
         </>
     );
 };

@@ -1,9 +1,9 @@
-import BlogFooter from "@/components/blogFooter";
-import CallToAction from "@/components/callToAction";
-import Carousel from "@/components/carousel";
-import Footer from "@/components/footer";
+import BlogFooter from "@/components/BlogFooter";
+import CallToAction from "@/components/CallToAction";
+import Carousel from "@/components/Carousel";
+import Footer from "@/components/Footer";
 import Navbar from "@/components/IcmNavbar";
-import Statistics from "@/components/statistics";
+import Statistics from "@/components/Statistics";
 
 export default function HomePage() {
     return (

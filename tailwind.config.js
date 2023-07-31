@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        'icm-blue': '#0080DE',
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
@@ -14,5 +17,7 @@ module.exports = {
       },
     },
   },
+  variants: {},
+
   plugins: [],
 };

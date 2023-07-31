@@ -38,7 +38,7 @@ export default function Statistics() {
     return (
 
 
-        <section className="w-screen container mx-auto md:px-20">
+        <section className="w-screen container mx-auto md:px-16 ">
 
             { /* ICM Blue rgb (0,127,222) */}
 
@@ -46,10 +46,12 @@ export default function Statistics() {
 
                 {items.map(item => (
 
-                    <center>
 
-                        <div
-                            className="flex-row m-10 p-2 text-white text-center "
+                    <div 
+
+                        key={item.url}
+
+                        className="flex-row m-10 p-4 text-white text-center "
                         >
 
                             <h2 className="font-montserrat text-6xl text-center">{item.amount} </h2>
@@ -64,8 +66,7 @@ export default function Statistics() {
                             </h4>
                             {/* <br /> */}
                             <a className="text-center border p-2 mt-10" href={item.url}>{item.action.toUpperCase()}</a>
-                        </div>
-                    </center>
+                    </div>
 
                 ))}
 

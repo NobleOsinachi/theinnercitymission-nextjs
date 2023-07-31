@@ -26,7 +26,7 @@ const Dropdown = (props: IcmNavDropDown) => {
 
     return (
         <div className="relative">
-            <button className="flex items-center text-white hover:text-gray-300" onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
+            <button className="flex items-center text-white hover:text-black" onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
                 {props.title}
 
                 <i className="ml-1">

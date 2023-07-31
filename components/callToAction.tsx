@@ -54,7 +54,7 @@ export default function CallToAction() {
     return (
 
 
-        <div className="CallToAction container mx-auto px-20     ">
+        <div className="CallToAction container mx-auto px-16">
 
 
             <div className="flex flex-col md:flex-row h-max items-center bg-white">

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Navbar from "../components/IcmNavbar";
-import Carousel from "@/components/carousel";
+import Carousel from "@/components/Carousel";
 
 
 interface IcmProps {
