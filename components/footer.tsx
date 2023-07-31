@@ -1,11 +1,9 @@
+import Image from "next/image";
+
 export default function Footer() {
     return (
 
-        <div className="Footer">
-
-            <h1>Footer</h1>
-
-        </div>
+        <Image src={"/images/footer.png"} alt={""} width="2000" height={100} />
 
     );
 }

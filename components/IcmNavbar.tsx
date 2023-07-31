@@ -87,7 +87,8 @@ const IcmNavbar = () => {
     return (
         <>
 
-            <nav className="bg-blue-500 flex justify-left items-center h-25 p-4">
+            <nav className="bg-blue-500 flex justify-left items-center h-25 p-4
+             text-white sticky top-0            ">
 
                 <span className="text-yellow-50 ml-5 font-semibold text-2xl m-5"><IcmLogo /></span>
 

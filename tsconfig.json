@@ -40,7 +40,7 @@
     "pages/_app.tsx",
     "pages/blog.js",
     "pages/blog/[slug].js"
-  ],
+, "app/eduhubb/page.tsxx"  ],
   "exclude": [
     "node_modules"
   ]

@@ -38,14 +38,11 @@ export default function Statistics() {
     return (
 
 
-        <section className="w-screen">
-
+        <section className="w-screen container mx-auto md:px-20">
 
             { /* ICM Blue rgb (0,127,222) */}
 
-
-            <div className=" text-white  ml-auto mr-auto statistics flex flex-row h-max align-middle w-4/5 bg-blue-500 justify-between items-center ">
-
+            <div className="statistics text-white  mx-auto  flex flex-col md:flex-row  h-max align-middle bg-blue-500 justify-between items-center ">
 
                 {items.map(item => (
 
