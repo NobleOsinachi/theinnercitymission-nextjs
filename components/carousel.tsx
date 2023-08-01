@@ -7,7 +7,7 @@ interface CarouselProps {
     height: number;
 }
 
-export default function Carousel(props: CarouselProps) {
+const Carousel = (props: CarouselProps) => {
     return (
         <div className="Carousel">
             <Image
@@ -17,9 +17,8 @@ export default function Carousel(props: CarouselProps) {
                 width={props.width}
                 height={props.height}
             />
-
-
-
         </div>
     );
 }
+
+export default Carousel;

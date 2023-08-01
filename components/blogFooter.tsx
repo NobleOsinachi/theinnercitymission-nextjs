@@ -1,11 +1,7 @@
-export default function BlogFooter() {
+const BlogFooter = () => {
     return (
-
-        <div className="BlogFooter">
-
-            <h1>BlogFooter</h1>
-
-        </div>
-
+        <h1>BlogFooter</h1>
     );
 }
+
+export default BlogFooter;

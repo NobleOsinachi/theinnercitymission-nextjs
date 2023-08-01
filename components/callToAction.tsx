@@ -47,9 +47,7 @@ const callToActionItems: ImgTxtAlt[] = [
     }
 ];
 
-
-export default function CallToAction() {
-
+const CallToAction = () => {
 
     return (
 
@@ -87,3 +85,7 @@ export default function CallToAction() {
 
     );
 }
+
+
+export default CallToAction;
+
