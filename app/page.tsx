@@ -1,3 +1,4 @@
+
 import BlogFooter from "@/components/BlogFooter";
 import CallToAction from "@/components/CallToAction";
 import Carousel from "@/components/Carousel";
@@ -19,7 +20,6 @@ export default function HomePage() {
 
       <Footer />
 
-      </div>
-
+    </div>
   );
 }
