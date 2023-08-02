@@ -33,3 +33,5 @@ export type QuantityUpdate = Record<number, string>;
 
 export type PaymentFormField = "fullName" | "email";
 export type PaymentFormType = Record<PaymentFormField, string>;
+
+export type ActionType = "single" | "multiple";
