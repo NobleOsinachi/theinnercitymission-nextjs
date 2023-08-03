@@ -2,7 +2,7 @@
 
 This repository contains a project that aims to clone the homepage of [The InnerCity Mission NGO](https://theinnercitymission.ngo/) using Next.js. The purpose of this project is to learn component architecture and other relevant concepts through practical implementation.
 
-Live Vercel deployment link: https://innercitymission-next-js.vercel.app/
+Live Vercel deployment link: https://theinnercitymission-nextjs.vercel.app/
 
 ## Getting Started
 
@@ -11,13 +11,13 @@ To run this project locally, follow these steps:
 1. **Clone the repository:** Start by cloning this repository to your local machine using the following command:
 
    ```bash
-   git clone https://github.com/NobleOsinachi/innercitymission-next-js/
+   git clone https://github.com/NobleOsinachi/theinnercitymission-nextjs/
    ```
 
 2. **Navigate to the project directory:** Move into the project directory using the following command:
 
    ```bash
-   cd innercitymission-next-js
+   cd theinnercitymission-nextjs
    ```
 
 3. **Install dependencies:** Install the project dependencies by running the following command:
