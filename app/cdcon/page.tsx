@@ -86,7 +86,7 @@ const Cdcon: React.FC = () => {
 
             router.push(
                 // `http://localhost/icm4c/?page_id=15&openRegModal=true&${urlParams}`
-                `http://theinnercitymission.ngo/CDCON/?openRegModal=true&${urlParams}`
+                `http://theinnercitymission.ngo/noble/?openRegModal=true&${urlParams}`
             );
         }
     }, [userProfile, router]);
