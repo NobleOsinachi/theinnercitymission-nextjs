@@ -70,29 +70,28 @@ const Cdcon: React.FC = () => {
         };
 
         getUserProfile();
-    }, [userProfile]);
 
-    useEffect(() => {
-        if (userProfile) {
 
-            const newData = {
-                kc_firstname: userProfile.name.split(" ")[0],
-                kc_lastname: userProfile.name.split(" ")[1],
-                kc_email: (userProfile.email === null) ? "" : userProfile.email,
-                kc_phone_number: userProfile.phone_number,
-                kc_avatarUrl: userProfile.avatar
-            };
 
-            const urlParams = new URLSearchParams(Object.entries(newData)).toString();
+        useEffect(() => {
+            if (userProfile) {
+                const newData = {
+                    kc_firstname: userProfile.name.split(" ")[0],
+                    kc_lastname: userProfile.name.split(" ")[1],
+                    kc_email: (userProfile.email === null) ? "" : userProfile.email,
+                    kc_phone_number: userProfile.phone_number,
+                    kc_avatarUrl: userProfile.avatar
+                };
 
-            // router.push(
-            //     `https://theinnercitymission.ngo/noble/?openRegModal=true&${encodeURIComponent(JSON.stringify(urlParams))}`
-            // );
+                const urlParams = new URLSearchParams(Object.entries(newData)).toString();
 
-            router.push(
-                `http://localhost/icm4c/?page_id=15&openRegModal=true&${urlParams}`
-            );
-        }
+                // Use router.push here instead of in the previous useEffect
+                router.push(
+                    `http://localhost/icm4c/?page_id=15&openRegModal=true&${urlParams}`
+                );
+            }
+        }, []);
+
     }, [userProfile, router]);
 
 
@@ -101,6 +100,7 @@ const Cdcon: React.FC = () => {
     return (<div> {/* {userDetails && ( <div> <p>Access Token: {userDetails?.accessToken}</p> <p>Expires In (ms): {userDetails?.expiresInMillis}</p> <p>Refresh Token: {userDetails?.refreshToken}</p> </div> )} */}
         <code className="w-100 m-auto">
             {/* {userProfile && JSON.stringify(userProfile)} */}
+            {!userProfile && <i>Kindly enable Pop up...</i>}
             {userProfile && <i>Redirecting...</i>}
         </code>
     </div>
