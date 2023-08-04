@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import kingsChatWebSdk from 'kingschat-web-sdk';
 import { authenticationTokenResponseI, loginOptionsI } from "kingschat-web-sdk/dist/ts/interfaces";
+import { useRouter } from "next/navigation";
 
 interface UserProfile {
     id: string;
@@ -16,18 +17,21 @@ interface UserProfile {
 }
 
 const Cdcon: React.FC = () => {
+    const router = useRouter();
 
     const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
 
-    const loginOptions: loginOptionsI = {
-        scopes: [
-            "send_chat_message",
-            // "conference_calls"
-        ],
-        clientId: "28b0b667-922f-4f15-8c61-a9a3622b3555"
-    };
+
 
     useEffect(() => {
+        const loginOptions: loginOptionsI = {
+            scopes: [
+                "send_chat_message",
+                // "conference_calls"
+            ],
+            clientId: "28b0b667-922f-4f15-8c61-a9a3622b3555"
+        };
+
         // Function to fetch user profile
         const getUserProfile = async () => {
             try {
@@ -57,14 +61,16 @@ const Cdcon: React.FC = () => {
                 const data = await response.json();
                 setUserProfile(data.profile);
                 console.log("User Profile:", userProfile);
+
+
+
             } catch (error) {
                 console.error("Error fetching user profile:", error);
             }
         };
 
         getUserProfile();
-    }, []);
-
+    }, [userProfile]);
 
     useEffect(() => {
         if (userProfile) {
@@ -79,11 +85,19 @@ const Cdcon: React.FC = () => {
 
             const urlParams = new URLSearchParams(Object.entries(newData)).toString();
 
-            window.location.href = `https://theinnercitymission.ngo/noble/?openRegModal=true&${encodeURIComponent(JSON.stringify(urlParams))}`;
+            // router.push(
+            //     `https://theinnercitymission.ngo/noble/?openRegModal=true&${encodeURIComponent(JSON.stringify(urlParams))}`
+            // );
 
-            // window.location.href = `http://localhost/icm4c/?page_id=11&openRegModal=true&${urlParams}`;
+            router.push(
+                `http://localhost/icm4c/?page_id=15&openRegModal=true&${urlParams}`
+            );
         }
-    }, [userProfile]);
+    }, [userProfile, router]);
+
+
+
+
     return (<div> {/* {userDetails && ( <div> <p>Access Token: {userDetails?.accessToken}</p> <p>Expires In (ms): {userDetails?.expiresInMillis}</p> <p>Refresh Token: {userDetails?.refreshToken}</p> </div> )} */}
         <code className="w-100 m-auto">
             {/* {userProfile && JSON.stringify(userProfile)} */}
@@ -93,11 +107,12 @@ const Cdcon: React.FC = () => {
     );
 };
 
-// https://healingstreams.tv/login.php
-
-// https://accounts.kingsch.at/?client_id=com.kingschat&scopes=%5B%22conference_calls%22%5D&post_redirect=true&redirect_uri=https://healingstreams.tv/kclogin.php
-
-// https://accounts.kingsch.at/?client_id=28b0b667-922f-4f15-8c61-a9a3622b3555&scopes=%5B%22send_chat_message%22%5D&redirect_uri=http%3A%2F%2Flocalhost%3A3000&post_message=1
-
 export default Cdcon;
 
+/*
+
+https://healingstreams.tv/login.php
+check their implementation
+https://accounts.kingsch.at/?client_id=com.kingschat&scopes=%5B%22conference_calls%22%5D&post_redirect=true&redirect_uri=https://healingstreams.tv/kclogin.php
+
+*/
