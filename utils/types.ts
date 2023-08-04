@@ -1,4 +1,4 @@
-
+    
 export type GiftType = {
     id: number;
     imgUrl: string;

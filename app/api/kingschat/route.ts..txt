@@ -1,0 +1,53 @@
+import { NextApiRequest, NextApiResponse } from 'next';
+import kingsChatWebSdk from 'kingschat-web-sdk';
+import { authenticationTokenResponseI, loginOptionsI } from "kingschat-web-sdk/dist/ts/interfaces";
+
+interface UserProfile {
+    id: string;
+    email: string;
+    name: string;
+    username: string;
+    phone_number: string;
+    gender: string;
+    birth_date_millis: number;
+    avatar: string;
+}
+
+type Nullable<T> = T | null;
+
+export default async function handler(req: NextApiRequest, res: NextApiResponse<UserProfile | null>) {
+    const userProfile = await getUserData();
+    res.status(200).json(userProfile);
+}
+
+const getUserData = async (): Promise<UserProfile | null> => {
+    const loginOptions: loginOptionsI = {
+        scopes: ["send_chat_message"],
+        clientId: "28b0b667-922f-4f15-8c61-a9a3622b3555"
+    };
+
+    try {
+        const authenticationTokenResponse: authenticationTokenResponseI = await kingsChatWebSdk.login(loginOptions);
+        const accessToken = authenticationTokenResponse?.accessToken;
+
+        const profileURL = "https://connect.kingsch.at/developer/api/profile";
+        const headers = {
+            authorization: `Bearer ${accessToken}`,
+        };
+
+        const response = await fetch(profileURL, {
+            method: "GET",
+            headers: headers,
+        });
+
+        if (!response.ok) {
+            throw new Error("Request failed");
+        }
+
+        const data = await response.json();
+        return data.profile;
+    } catch (error) {
+        console.error("Error fetching user profile:", error);
+        return null;
+    }
+};
