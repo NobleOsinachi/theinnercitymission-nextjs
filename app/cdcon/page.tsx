@@ -77,13 +77,9 @@ const Cdcon: React.FC = () => {
                 kc_avatarUrl: userProfile.avatar
             };
 
-
-
-            // Redirect to the specified URL with userProfile as URL parameter
-
             const urlParams = new URLSearchParams(Object.entries(newData)).toString();
 
-            window.location.href = `https://theinnercitymission.ngo/noble/?openRegModal=true&${encodeURIComponent(JSON.stringify(userProfile))}`;
+            window.location.href = `https://theinnercitymission.ngo/noble/?openRegModal=true&${encodeURIComponent(JSON.stringify(urlParams))}`;
 
             // window.location.href = `http://localhost/icm4c/?page_id=11&openRegModal=true&${urlParams}`;
         }
