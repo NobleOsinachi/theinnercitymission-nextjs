@@ -27,7 +27,7 @@ const Cdcon: React.FC = () => {
 
     const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
 
-    const clientId: string = process.env.NEXT_PUBLIC_KINGSCHAT_WEB_API || "69197e00-bc42-45ce-8cb0-6ae12921ec69";
+    const clientId: string = process.env.NEXT_PUBLIC_KINGSCHAT_WEB_API || "8d59b433-446f-434b-891f-ddf90f8db105";
 
     // Function to fetch user profile
     const getUserProfile = async (): Promise<boolean> => {
@@ -74,8 +74,8 @@ const Cdcon: React.FC = () => {
     // Call the function to fetch user profile immediately
     useEffect(() => {
         getUserProfile();
-        // }, []);
-    });
+    }, []);
+    // });
 
 
     // Redirect to the desired URL after fetching the user profile
