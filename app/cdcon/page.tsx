@@ -87,13 +87,20 @@ const Cdcon: React.FC = () => {
                 kc_lastname: userProfile.name.split(" ")[1],
                 kc_email: (userProfile.email === null) ? "" : userProfile.email,
                 kc_phone_number: userProfile.phone_number,
-                kc_avatarUrl: userProfile.avatar
+                kc_avatarUrl: userProfile.avatar,
+                kc_openRegModal: 'true'
             };
 
             const urlParams = new URLSearchParams(Object.entries(kc_data)).toString();
 
             router.push(
-                `${returnUrl}/?openRegModal=true&${urlParams}`
+                /*
+                https://theinnercitymission.ngo/cdcon/?dept=BLWZoneC        
+                https://theinnercitymission.ngo/cdcon/
+                */
+
+
+                `${returnUrl}/?${urlParams}`
                 // `http://theinnercitymission.ngo/noble/?openRegModal=true&${urlParams}`
             );
         }
