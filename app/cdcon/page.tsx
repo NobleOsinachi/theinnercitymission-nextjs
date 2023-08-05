@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import kingsChatWebSdk from 'kingschat-web-sdk';
 import { authenticationTokenResponseI, loginOptionsI } from "kingschat-web-sdk/dist/ts/interfaces";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 interface UserProfile {
     id: string;
@@ -17,25 +17,30 @@ interface UserProfile {
 }
 
 const Cdcon: React.FC = () => {
+
+    const searchParams = useSearchParams();
+
+    // Get the value of the `name` query parameter
+    const returnUrl = searchParams.get('returnUrl');
+
     const router = useRouter();
 
     const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
+
+    const clientId: string = process.env.NEXT_PUBLIC_KINGSCHAT_WEB_API || "69197e00-bc42-45ce-8cb0-6ae12921ec69";
 
     // Function to fetch user profile
     const getUserProfile = async (): Promise<boolean> => {
         try {
             const loginOptions: loginOptionsI = {
-                scopes: [
-                    "send_chat_message",
-                    // "conference_calls"
-                ],
-                clientId: "28b0b667-922f-4f15-8c61-a9a3622b3555"
+                clientId: clientId,
+                scopes: []
             };
 
             const authenticationTokenResponse: authenticationTokenResponseI = await kingsChatWebSdk.login(loginOptions);
 
             // Replace this with your actual client ID and Access Token
-            // const clientID = "28b0b667-922f-4f15-8c61-a9a3622b3555";
+
             const accessToken = authenticationTokenResponse.accessToken;
 
             // Endpoint URL for getting user profile
@@ -69,12 +74,15 @@ const Cdcon: React.FC = () => {
     // Call the function to fetch user profile immediately
     useEffect(() => {
         getUserProfile();
-    }, []);
+        // }, []);
+    });
+
 
     // Redirect to the desired URL after fetching the user profile
     useEffect(() => {
         if (userProfile) {
             const kc_data = {
+                kc_username: userProfile.username,
                 kc_firstname: userProfile.name.split(" ")[0],
                 kc_lastname: userProfile.name.split(" ")[1],
                 kc_email: (userProfile.email === null) ? "" : userProfile.email,
@@ -85,15 +93,16 @@ const Cdcon: React.FC = () => {
             const urlParams = new URLSearchParams(Object.entries(kc_data)).toString();
 
             router.push(
-                // `http://localhost/icm4c/?page_id=15&openRegModal=true&${urlParams}`
-                `http://theinnercitymission.ngo/noble/?openRegModal=true&${urlParams}`
+                `${returnUrl}&openRegModal=true&${urlParams}`
+                // `http://theinnercitymission.ngo/noble/?openRegModal=true&${urlParams}`
             );
         }
-    }, [userProfile, router]);
+    }, [userProfile, router, returnUrl]);
 
     return (
         <div>
             <code className="w-100 m-auto">
+                {!userProfile && <b>Kindly grant pop-up permissions</b>}
                 {userProfile && <i>Redirecting...</i>}
             </code>
         </div>
