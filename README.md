@@ -10,29 +10,29 @@ To run this project locally, follow these steps:
 
 1. **Clone the repository:** Start by cloning this repository to your local machine using the following command:
 
-   ```bash
-   git clone https://github.com/NobleOsinachi/theinnercitymission-nextjs/
-   ```
+```bash
+git clone https://github.com/NobleOsinachi/theinnercitymission-nextjs/
+```
 
 2. **Navigate to the project directory:** Move into the project directory using the following command:
 
-   ```bash
-   cd theinnercitymission-nextjs
-   ```
+```bash
+cd theinnercitymission-nextjs
+```
 
 3. **Install dependencies:** Install the project dependencies by running the following command:
 
-   ```bash
-   npm install
-   ```
+```bash
+npm install
+```
 
 4. **Run the development server:** Start the Next.js development server using the following command:
 
-   ```bash
-   npm run dev
-   ```
+```bash
+npm run dev
+```
 
-   This will launch the development server and make the project accessible at `http://localhost:3000`.
+This will launch the development server and make the project accessible at `http://localhost:3000`.
 
 5. **Explore and learn:** Open your browser and visit `http://localhost:3000` to see the InnerCityMission homepage clone. You can now explore the project's code, modify components, and experiment with different architectural patterns to enhance your understanding of Next.js and component-based development.
 
