@@ -93,7 +93,7 @@ const Cdcon: React.FC = () => {
             const urlParams = new URLSearchParams(Object.entries(kc_data)).toString();
 
             router.push(
-                `${returnUrl}&openRegModal=true&${urlParams}`
+                `${returnUrl}/?openRegModal=true&${urlParams}`
                 // `http://theinnercitymission.ngo/noble/?openRegModal=true&${urlParams}`
             );
         }
