@@ -16,12 +16,25 @@ interface UserProfile {
     avatar: string;
 }
 
+function clean(link: string) {
+    // Remove trailing slashes from the link
+    link = link.replace(/\/+$/, "");
+
+    // Check if the link contains a question mark "?"
+    const hasQuery = link.includes("%2F%3F");
+
+    // Add the appropriate separator based on whether the link has a query string or not
+    link += hasQuery ? "&" : "/?";
+
+    return link;
+}
+
 const Cdcon: React.FC = () => {
 
     const searchParams = useSearchParams();
 
     // Get the value of the `name` query parameter
-    const returnUrl = searchParams.get('returnUrl');
+    const returnUrl = searchParams.get('returnUrl') || "";
 
     const router = useRouter();
 
@@ -82,25 +95,20 @@ const Cdcon: React.FC = () => {
     useEffect(() => {
         if (userProfile) {
             const kc_data = {
+                kc_avatarUrl: userProfile.avatar,
                 kc_username: userProfile.username,
                 kc_firstname: userProfile.name.split(" ")[0],
                 kc_lastname: userProfile.name.split(" ")[1],
                 kc_email: (userProfile.email === null) ? "" : userProfile.email,
                 kc_phone_number: userProfile.phone_number,
-                kc_avatarUrl: userProfile.avatar,
                 kc_openRegModal: 'true'
             };
 
             const urlParams = new URLSearchParams(Object.entries(kc_data)).toString();
 
+
             router.push(
-                /*
-                https://theinnercitymission.ngo/cdcon/?dept=BLWZoneC        
-                https://theinnercitymission.ngo/cdcon/
-                */
-
-
-                `${returnUrl}/?${urlParams}`
+                `${clean(returnUrl)}${urlParams}`
                 // `http://theinnercitymission.ngo/noble/?openRegModal=true&${urlParams}`
             );
         }
@@ -109,7 +117,7 @@ const Cdcon: React.FC = () => {
     return (
         <div>
             <code className="w-100 m-auto">
-                {!userProfile && <b>Kindly grant pop-up permissions</b>}
+                {!userProfile && <b>Kindly allow pop-up permissions</b>}
                 {userProfile && <i>Redirecting...</i>}
             </code>
         </div>
