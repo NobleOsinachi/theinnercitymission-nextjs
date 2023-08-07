@@ -28,92 +28,14 @@ export interface IcmNavDropDown {
 }
 
 const IcmNavbar = () => {
-    const links: IcmNavLink[] = [{ label: "Home", url: "/" }, { label: "About Us", url: "/about" },];
 
-    const dropDowns: IcmNavDropDown[] = [
-        {
-            title: "What We Do",
-            links: [
-                { label: "Education Program", url: "/" },
-                { label: "Feeding Program", url: "/" },
-                { label: "Familiy Strengthening & Livelihood", url: "/" },
-                { label: "Shelter Program", url: "/" },
-                { label: "Humanitarian Response", url: "/" },
-                { label: "Health & Nutrition Program", url: "/" },
-                { label: "Child Safety & Advocacy Program", url: "/" },
-                { label: "Faith & Development", url: "/" },
-            ],
-        }, {
-
-            title: "Special Highlights",
-            links: [
-                { label: "North East Nigeria", url: "/" },
-                { label: "Hunger Action Month", url: "/" },
-                { label: "Colouring Dreams Conference 2023", url: "/" },
-                { label: "360 Virtual Tours", url: "/" },
-                { label: "Video Livestreams", url: "/" },
-            ]
-        },
-
-        {
-            title: "How to Support",
-            links: [
-                { label: "Make a Donation", url: "/" },
-                { label: "Partner With Us", url: "/" },
-                { label: "Volunteer", url: "/" },
-                { label: "Corporate Partnership", url: "/" },
-                { label: "Join the Prayer Network", url: "/" },
-                { label: "Online Fundraising", url: "/" },
-            ]
-        }, {
-            title: "Reports",
-            links: [
-                { label: "Impact News Blog", url: "/" },
-                { label: "Global Mission Newsletter", url: "/" },
-            ]
-        },];
-
-    const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-
-    const handleMouseEnter = (category: string) => {
-        setActiveDropdown(category);
-    };
-
-    const handleMouseLeave = () => {
-        setActiveDropdown(null);
-    };
 
 
     return (
         <>
-
             <nav className=" bg-icm-blue flex justify-left items-center h-25 p-4
              text-white sticky top-0">
-
                 <span className="text-yellow-50 ml-5 font-semibold text-2xl m-5"><IcmLogo /></span>
-
-                <ul className="flex gap-2 list-none text-gray-200 font-semibold">
-
-                    {links.map((link) => (
-                        <li key={link.label}>
-                            <Link
-                                className="hover:text-black m-0 p-2"
-                                href={link.url}
-                            >
-                                {link.label}
-                            </Link>
-                        </li>
-                    ))}
-
-                    <li className="flex gap-2">
-
-                        {dropDowns.map(dropdown => (
-
-                            <Dropdown key={dropdown.title} title={dropdown.title} links={dropdown.links} />
-
-                        ))}
-                    </li>
-                </ul>
             </nav>
         </>
     );
