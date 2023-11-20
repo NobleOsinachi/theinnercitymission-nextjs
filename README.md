@@ -1,4 +1,4 @@
-# The Inner City Mission Home Page Clone using Next JS
+# The InnerCity Mission Home Page Clone using NextJS
 
 This repository contains a project that aims to clone the homepage of [The InnerCity Mission NGO](https://theinnercitymission.ngo/) using Next.js. The purpose of this project is to learn component architecture and other relevant concepts through practical implementation.
 
