@@ -11,7 +11,7 @@ export default function HomePage() {
   return (
     <div className='HomePage'>
       <Carousel
-        src={'/images/banner.jpg'}
+        src={'/images/banner.png'}
         alt={'banner.png'}
         width={100}
         height={100}
